@@ -24,6 +24,8 @@ gem 'rails_12factor'
 gem 'therubyracer'
 gem 'twitter-bootstrap-rails'
 
+gem 'sendgrid-ruby'
+
 # gem 'aws-sdk-s3', require: false
 
 # Use CoffeeScript for .coffee assets and views

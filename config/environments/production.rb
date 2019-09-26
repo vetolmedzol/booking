@@ -81,8 +81,7 @@ Rails.application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
-  # Use a different logger for distributed setups.
-  # require 'syslog/logger'
+  # Use a differen ger'
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
 
   if ENV['RAILS_LOG_TO_STDOUT'].present?
@@ -93,4 +92,20 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  config.action_mailer.default_url_options = { host: 'mighty-plateau-44447.herokuapp.com' }
+
+  # config.action_mailer.delivery_method = :sendgrid
+  # config.action_mailer.sendgrid_settings = { api_token: ENV['SENDGRID']}
+
+  config.action_mailer.delivery_method = :smtp
+  ActionMailer::Base.smtp_settings = {
+      :user_name => 'app146926395@heroku.com',
+      :password => 'santa1g94',
+      :domain => 'pure-stream-32435.herokuapp.com',
+      :address => 'smtp.sendgrid.net',
+      :port => 587,
+      :authentication => :plain,
+      :enable_starttls_auto => true
+  }
 end
