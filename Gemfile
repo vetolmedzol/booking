@@ -24,7 +24,7 @@ gem 'rails_12factor'
 gem 'therubyracer'
 gem 'twitter-bootstrap-rails'
 
-gem 'aws-sdk-s3', require: false
+# gem 'aws-sdk-s3', require: false
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
