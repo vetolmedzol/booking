@@ -19,7 +19,7 @@ class Admin::TrainsController < Admin::BasisController
     @train = Train.new(train_params)
 
     if @train.save
-      redirect_to [:admin, @train], notice: 'Train was successfully created.'
+      redirect_to admin_trains_path, notice: 'Train was successfully created.'
     else
       render :new
     end
@@ -27,7 +27,7 @@ class Admin::TrainsController < Admin::BasisController
 
   def update
     if @train.update(train_params)
-      redirect_to [:admin, @train], notice: 'Train was successfully updated.'
+      redirect_to admin_trains_path, notice: 'Train was successfully updated.'
     else
       render :edit
     end

@@ -5,10 +5,10 @@ ru:
       subject_destroy: 'Ваш билет удалён!'
   layouts:
     application:
-      copyright: '2019 Мозоль Виталий. Учебный проект в онлайн школе " '
+      copyright: '2019 Мозоль Виталий. Учебный проект в " '
       tickets: 'Мои билеты'
     admin:
-      copyright: '2019 Мозоль Виталий. Учебный проект в онлайн школе " '
+      copyright: '2019 Мозоль Виталий. Учебный проект в " '
       welcome: "Панель администратора"
   common:
     back: 'Назад'
@@ -38,6 +38,9 @@ ru:
     index:
       Search: 'ПОИСК БИЛЕТОВ'
   admin:
+    train:
+      form:
+        submit: '%{action} поезд'
     railway_stations:
       new:
         title: 'Новая станция'

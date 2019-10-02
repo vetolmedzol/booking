@@ -1,5 +1,5 @@
-<%= form_for([:admin, @train]) do |form| %>
-  <% render 'common/errors', resource: @train %>
+<%= form_for [:admin, train], html: { style: "display: #{hidden ? 'none' : 'block'}" } do |form| %>
+  <% render 'common/errors', resource: train %>
 
   <div class="field">
     <%= form.label :number %>
@@ -20,10 +20,10 @@
 
   <div class="field">
     <%= form.label :order_carriages %>
-    <%= form.check_box :order_carriages%>
+    <%= form.check_box :order_carriages %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Edit' , class: 'create button' %>
   </div>
 <% end %>

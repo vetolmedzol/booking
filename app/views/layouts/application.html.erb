@@ -9,30 +9,30 @@
 
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-</head>
 
-<p id="notice" class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
-
-<div class="navbar navbar-default navbar-static-top">
-  <div class="container">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-    <a class="navbar-brand" href="#">Booking</a>
-    <div class="navbar-collapse collapse navbar-responsive-collapse">
-      <ul class="nav navbar-nav">
-        <% if user_signed_in? %>
-          <li><%= link_to t('common.sign_out'), destroy_user_session_path, method: :delete %></li>
-        <% else %>
-          <li><%= link_to "Войти", new_user_session_path %></li>
-        <% end %>
-      </ul>
+  <div class="navbar navbar-default navbar-static-top">
+    <div class="container">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Booking</a>
+      <div class="navbar-collapse collapse navbar-responsive-collapse">
+        <ul class="nav navbar-nav">
+          <% if user_signed_in? %>
+            <li><%= link_to t('common.sign_out'), destroy_user_session_path, method: :delete %></li>
+            <% if current_user.admin == true %>
+              <li><%= link_to "Admin panel", admin_welcome_index_path %></li>
+            <% end %>
+          <% else %>
+            <li><%= link_to "Войти", new_user_session_path %></li>
+          <% end %>
+        </ul>
+      </div>
     </div>
   </div>
-</div>
+</head>
 
 <div class="container">
   <div class="row">
@@ -45,7 +45,7 @@
 
 <div id="footer">
   <%= '© ' + t('layouts.application.copyright') %>
-  <a href=" http://www.thinknetica.com "> Thinknetica </a>"
+  <a href=" https://gotoinc.eu/"> GoToInc! </a>"
 </div>
 
 </html>

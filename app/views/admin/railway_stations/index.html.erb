@@ -1,7 +1,5 @@
-<p id="notice"><%= notice %></p>
-
 <h1><%= t('.title') %></h1>
-
+<body>
 <table>
   <thead>
   <tr>
@@ -13,7 +11,7 @@
   <%= render @railway_stations %>
   </tbody>
 </table>
-
+</body>
 <br>
 
 <%= link_to t('.new'), new_admin_railway_station_path %> |

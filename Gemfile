@@ -24,9 +24,10 @@ gem 'rails_12factor'
 gem 'therubyracer'
 gem 'twitter-bootstrap-rails'
 
-gem 'sendgrid-ruby'
-gem 'cloudinary'
 gem 'carrierwave'
+gem 'cloudinary'
+gem 'jquery-rails'
+gem 'sendgrid-ruby'
 
 # gem 'aws-sdk-s3', require: false
 

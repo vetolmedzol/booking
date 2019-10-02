@@ -21,10 +21,10 @@ class Ticket < ApplicationRecord
   private
 
   def send_notification
-    TicketsMailer.buy_ticket(self.user, self).deliver_now
+    TicketsMailer.buy_ticket(user, self).deliver_now
   end
 
   def send_destroyed
-    TicketsMailer.delete_ticket(self.user, self).deliver_now
+    TicketsMailer.delete_ticket(user, self).deliver_now
   end
 end

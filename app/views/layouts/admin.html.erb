@@ -2,10 +2,6 @@
 <html>
 <head>
 
-  <div id="head">
-    <h1> <%= t('layouts.admin.welcome') %></h1>
-  </div>
-
   <style type="text/css">
     #footer {
       position: fixed;
@@ -15,37 +11,48 @@
       padding: 25px;
       font-size: 20px;
     }
-    #head {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      text-align: center;
-    }
   </style>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
 
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+  <div class="navbar navbar-default navbar-static-top">
+    <div class="container">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Booking</a>
+      <div class="navbar-collapse collapse navbar-responsive-collapse">
+        <ul class="nav navbar-nav">
+          <% if user_signed_in? %>
+            <li><%= link_to t('common.sign_out'), destroy_user_session_path, method: :delete %></li>
+            <% if current_user.admin == true %>
+              <li><%= link_to "Admin panel", admin_welcome_index_path %></li>
+            <% end %>
+          <% else %>
+            <li><%= link_to "Войти", new_user_session_path %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+
 </head>
 
 <p id="notice" class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
-
-<% if user_signed_in? %>
-  <%= link_to "Exit", destroy_user_session_path, method: :delete %>
-  <p>Account: <%= current_user.email %></p>
-<% else %>
-  <%= link_to "Enter", new_user_session_path %>
-<% end %>
 
 <body>
 <%= yield %>
 </body>
 
 <div id="footer">
-  <%= ('layouts.admin.copyright') %>
-  <a href=" http://www.thinknetica.com "> Thinknetica </a>"
+  <%= t('layouts.admin.copyright') %>
+  <a href=" https://gotoinc.eu/"> GoToInc! </a>"
 </div>
 
 </html>
